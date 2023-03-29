@@ -1,0 +1,29 @@
+.header {
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  font-size: 24px;
+  font-weight: 700;
+  gap: 8px;
+}
+
+.navigation {
+  display: flex;
+  align-items: center;
+  gap: 45px;
+  font-size: 20px;
+  letter-spacing: 2px;
+}
+
+.logo,
+.navigation {
+  color: #fafafa;
+}
