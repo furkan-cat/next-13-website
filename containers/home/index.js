@@ -1,8 +1,6 @@
 import MovieInfo from "@/componets/movie-info";
 import Categories from "@/componets/categories";
 import MoviesSection from "@/componets/movies-section";
-import movieData from "@/mocks/movies.json";
-import genreData from "@/mocks/genres.json";
 
 export default function HomeContainer({
   topRatedMovies = [],
@@ -12,20 +10,19 @@ export default function HomeContainer({
 }) {
   return (
     <div>
-      <MovieInfo movie={movieData.results[2]} />
+      <MovieInfo movie={topRatedMovies?.[0]} />
       <Categories categories={categories.slice(0, 5)} />
       {selectedCategory.movies.length > 0 && (
         <MoviesSection
           movies={selectedCategory.movies}
           title={
-            genreData.genres.find(
-              (genre) => `${genre.id}` === selectedCategory.id
-            ).name
+            categories.find((genre) => `${genre.id}` === selectedCategory.id)
+              ?.name
           }
         />
       )}
-      <MoviesSection movies={topRatedMovies.slice(9, 15)} title="Top Rated" />
-      <MoviesSection movies={popularMovies.slice(9, 15)} title="Popular" />
+      <MoviesSection movies={topRatedMovies} title="Top Rated" />
+      <MoviesSection movies={popularMovies} title="Popular" />
     </div>
   );
 }
